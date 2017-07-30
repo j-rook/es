@@ -28,7 +28,7 @@ bool DeliveryCrew::addCrewMember(Person& possibleAddition)
 	{	
 		
 		setCrewSize(getCrewSize() + 1);
-		_crew[getCrewSize()] = possibleAddition;
+		_crew[getCrewSize()-1] = possibleAddition;
 		return true;
 	}
 	
@@ -47,9 +47,9 @@ bool DeliveryCrew::removeCrewMember(Person possibleRemoval)
 void DeliveryCrew::listCrewMembers()
 {
 std::cout << "blah.";
-	for (Person crewMember : _crew)
+	for (int i = 0; i < getCrewSize(); ++i)
 	{
-		crewMember.printDescription();
+		_crew[i].printDescription();
 	}
 }
 float DeliveryCrew::sumCrewHourlyRates()

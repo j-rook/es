@@ -46,18 +46,18 @@ bool DeliveryCrew::removeCrewMember(Person possibleRemoval)
 }
 void DeliveryCrew::listCrewMembers()
 {
-std::cout << "blah.";
-	for (Person crewMember : _crew)
+
+	for (int i = 0; i < getCrewSize(); ++i)
 	{
-		crewMember.printDescription();
+		_crew[i].printDescription();
 	}
 }
 float DeliveryCrew::sumCrewHourlyRates()
 {
 	float sum = 0.0;
-	for (Person crewMember : _crew)
+	for (int i = 0; i < getCrewSize(); ++i)
 	{
-		sum += crewMember.getHourlyRate();
+		sum += _crew[i].getHourlyRate();
 	}
 	
 	return sum;
