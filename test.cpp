@@ -16,8 +16,11 @@ int main()
     DeliveryCrew crew(a);
     
     crew.listCrewMembers();
-    
+    float sum = crew.sumCrewHourlyRates();
+    std::cout << "Crew's hourly pay: " << sum << std::endl;
     crew.addCrewMember(b);
     
     crew.listCrewMembers();
+    sum = crew.sumCrewHourlyRates();
+    std::cout << "Crew's hourly pay: " << sum << std::endl;
 }
