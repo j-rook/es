@@ -52,7 +52,13 @@ void DeliveryCrew::listCrewMembers()
 }
 float DeliveryCrew::sumCrewHourlyRates()
 {
-
+	float sum = 0.0;
+	for (Person crewMember : _crew)
+	{
+		sum += crewMember.getHourlyRate();
+	}
+	
+	return sum;
 }
 
 int DeliveryCrew::getCrewSize()

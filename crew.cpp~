@@ -21,10 +21,10 @@ DeliveryCrew::DeliveryCrew(Person a, Person b)
 
 
 
-bool DeliveryCrew::addCrewMember(Person possibleAddition)
+bool DeliveryCrew::addCrewMember(Person& possibleAddition)
 {
 	
-	if (_size < 2)
+	if (getCrewSize() < 2)
 	{	
 		setCrewSize(getCrewSize() + 1);
 		_crew[getCrewSize()] = possibleAddition;
