@@ -16,7 +16,7 @@ class Person
 		void setHourlyRate(double payPerHour);
 		void printDescription(void);
 	private:
-		int _payPerHour;
+		double _payPerHour;
 		std::string _name;
 		
 };

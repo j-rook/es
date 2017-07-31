@@ -14,6 +14,12 @@ class Person
 		void setName(std::string name);
 		double getHourlyRate(void);
 		void setHourlyRate(double payPerHour);
+		/*
+		 *Function to print a description of the Person
+		 *@impl - none
+		 *@param - none
+		 *@res - none
+		 */
 		void printDescription(void);
 	private:
 		double _payPerHour;
