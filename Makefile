@@ -1,5 +1,6 @@
 CXX = g++
 compFlags = c
+debugFlags = g
 outFlags =  o
 
 all: person.obj test.obj crew.obj

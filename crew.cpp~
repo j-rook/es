@@ -42,11 +42,44 @@ bool DeliveryCrew::addCrewMember(Person& possibleAddition)
 
 bool DeliveryCrew::removeCrewMember(Person possibleRemoval)
 {
+	Person arr[getCrewSize()] = {};
+
+	int size = getCrewSize();
+	int ndx = 0;
+	if (size > 0)
+	{
+		for (int i = 0; i < getCrewSize(); ++i)
+		{
+
+			if (_crew[i].getName().compare(possibleRemoval.getName()) != 0)
+			{
+				arr[ndx] = _crew[i];
+				++ndx;
+			}
+			else
+			{
+				--size;
+			}
+		}
+		
+		for (int i = 0; i < getCrewSize(); ++i)
+		{
+			_crew[i] = arr[i];
+		}
+	
+		setCrewSize(size);
+	}
+	
+	else
+	{
+		std::cout << "No crew members to remove..." << std::endl;
+	}
+	
 	
 }
 void DeliveryCrew::listCrewMembers()
 {
-std::cout << "blah.";
+
 	for (int i = 0; i < getCrewSize(); ++i)
 	{
 		_crew[i].printDescription();
@@ -55,9 +88,9 @@ std::cout << "blah.";
 float DeliveryCrew::sumCrewHourlyRates()
 {
 	float sum = 0.0;
-	for (Person crewMember : _crew)
+	for (int i = 0; i < getCrewSize(); ++i)
 	{
-		sum += crewMember.getHourlyRate();
+		sum += _crew[i].getHourlyRate();
 	}
 	
 	return sum;

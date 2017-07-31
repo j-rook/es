@@ -17,10 +17,26 @@ int main()
     
     crew.listCrewMembers();
     float sum = crew.sumCrewHourlyRates();
-    std::cout << "Crew's hourly pay: " << sum << std::endl;
+    std::cout << "\nCrew's hourly pay: " << sum << std::endl;
     crew.addCrewMember(b);
     
     crew.listCrewMembers();
     sum = crew.sumCrewHourlyRates();
-    std::cout << "Crew's hourly pay: " << sum << std::endl;
+    std::cout << "\nCrew's hourly pay: " << sum << std::endl;
+    
+    crew.removeCrewMember(b);
+        crew.listCrewMembers();
+    sum = crew.sumCrewHourlyRates();
+    std::cout << "\nCrew's hourly pay: " << sum << std::endl;
+    
+    crew.removeCrewMember(a);
+        crew.listCrewMembers();
+    sum = crew.sumCrewHourlyRates();
+    std::cout << "\nCrew's hourly pay: " << sum << std::endl;
+    
+    crew.removeCrewMember(b);
+        crew.listCrewMembers();
+    sum = crew.sumCrewHourlyRates();
+    std::cout << "\nCrew's hourly pay: " << sum << std::endl;
+    
 }
