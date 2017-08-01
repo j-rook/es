@@ -34,4 +34,9 @@ int main()
     sum = crew.sumCrewHourlyRates();
     std::cout << "\nCrew's hourly pay: " << sum << std::endl;
     
+    crew.removeCrewMember(b);
+    crew.listCrewMembers();
+    sum = crew.sumCrewHourlyRates();
+    std::cout << "\nCrew's hourly pay: " << sum << std::endl;
+    
 }

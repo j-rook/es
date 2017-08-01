@@ -4,7 +4,7 @@ debugFlags = g
 outFlags =  o
 
 all: person.obj test.obj crew.obj
-	$(CXX) -$(debugFlags) test test.o person.o crew.o
+	$(CXX) -$(outFlags) test test.o person.o crew.o
 
 test.obj: test.h test.cpp person.h crew.h
 	$(CXX) -$(compFlags) test.cpp
