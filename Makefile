@@ -16,5 +16,5 @@ crew.obj: crew.cpp crew.h person.h
 	$(CXX) -$(compFlags) crew.cpp
 
 clean:
-	rm -rv *o
+	rm -rv *o *out
   

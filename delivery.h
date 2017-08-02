@@ -1,28 +1,57 @@
 #ifndef DELIVERY_H
 #define DELIVERY_H
-#include "inout.h"
+#include <iostream>
 #include "crew.h"
 #include <string>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;
 
 class Delivery
 {
 	public:
 		Delivery()
 		{
-			std::cout << "Enter the estimated setup time (in min): " << std::endl;
-			std::cin >> _estimatedSetupTime;
+			cout << "Enter the estimated setup time (in min): " << endl  << ">> ";
+			//printPrompt();
+			cin >> _estimatedSetupTime;
 			
-			std::cout << "Enter the estimated drive time (in min): " << std::endl;
-			std::cin >> _estimatedDriveTime;
+			cout << "Enter the estimated drive time (in min): " << endl  << ">> ";
+			cin >> _estimatedDriveTime;
 			
-			std::cout << "Enter the delivery fee: " << std::endl;
-			std::cin >> _deliveryCharge;
+			cout << "Enter the delivery fee: " << endl  << ">> ";
+			cin >> _deliveryCharge;
 		
-			string addCrew = "n";
+			string addCrew;
 			do
-			{
-				std::cout << "Add crew member? [y/N]" << std::endl;
-				std::cin >> addCrew;
+			{	
+				string name;
+				float pay;
+				cout << "Please enter crew member's name." << endl << ">> ";
+				cin >> name;
+				cout << "Please enter crew member's hourly pay." << endl  << ">> ";
+				cin >> pay;
+				
+				Person crewMember(pay, name);
+				crewMember.printDescription();
+				
+				
+				bool tf = crew.addCrewMember(crewMember);
+				if (tf)
+				{
+					cout << name << " was added." << endl;
+				}
+				else
+				{
+					cout << name << " was not added." << endl;
+					cout << "The crew is currently of size : " << crew.getCrewSize() << endl;
+					
+					cout << "The max crew size is: " << crew.getMaxSize() << endl;
+				}
+				cout << "Add crew member? [y/n]" << endl  << ">> ";
+				cin >> addCrew;
 			} while (addCrew.compare("y") == 0);
 		}
 		int getEstimatedSetupTime();
