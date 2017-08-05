@@ -40,5 +40,5 @@ int main()
     sum = crew.sumCrewHourlyRates();
     std::cout << "\nCrew's hourly pay: " << sum << std::endl;
     */
-    Delivery d1;
+    Delivery::Delivery d1;
 }
