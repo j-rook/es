@@ -41,7 +41,7 @@ int main()
     std::cout << "\nCrew's hourly pay: " << sum << std::endl;
     */
     Delivery d1;
-    d1.setEstimatedSetupTime(30);
-    std::cout << d1.getEstimatedSetupTime() << std::endl;
+//    d1.setEstimatedSetupTime(30);
+    std::cout << "For this delivery, there was a profit of: " << d1.calculateDeliveryProfit() << std::endl;
 
 }
