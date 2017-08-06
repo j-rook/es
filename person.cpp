@@ -1,18 +1,17 @@
 #include "person.h"
-#include "inout.h"
 
-Person::Person(double payPerHour, string name)
+Person::Person(double payPerHour, std::string name)
 {
 	setHourlyRate(payPerHour);
 	setName(name);
 }
 
-string Person::getName() 
+std::string Person::getName() 
 {
 	return _name;
 
 }
-void Person::setName(string name) 
+void Person::setName(std::string name) 
 {
 	_name = name;
 
@@ -29,6 +28,6 @@ void Person::setHourlyRate(double payPerHour)
 }
 void Person::printDescription(void)
 {
-	cout << "Name: " << Person::getName() << endl << "Hourly Rate: "        << Person::getHourlyRate() << endl;
+	std::cout << "Name: " << Person::getName() << std::endl << "Hourly Rate: "        << Person::getHourlyRate() << std::endl;
 }
 

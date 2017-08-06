@@ -8,18 +8,17 @@
 class Delivery
 {
 	public:
-		Delivery();
-		int getEstimatedSetupTime(){}
-		int getEstimatedDriveTime(){}
-		float getDeliveryCharge(){}
-		void setEstimatedSetupTime(int){}
-		void setEstimatedDriveTime(int){}
-		void setDeliveryCharge(float){}
-		int calculateEstimatedDeliveryTime(){}
+		int getEstimatedSetupTime();
+		int getEstimatedDriveTime();
+		float getDeliveryCharge();
+		void setEstimatedSetupTime(int);
+		void setEstimatedDriveTime(int);
+		void setDeliveryCharge(float);
+		int calculateEstimatedDeliveryTime();
 		
 	private:
-		int _estimatedSetupTime;
-		int _estimatedDriveTime;
+		int _estSetupTime;
+		int _estDriveTime;
 		float _deliveryCharge;
 		DeliveryCrew crew;
 };
