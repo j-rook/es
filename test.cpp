@@ -1,10 +1,12 @@
 #include "test.h"
 #include <fstream>
+#include <sstream>
 using std::cout;
 using std::cin;
 using std::endl;
 using std::string;
 using std::fstream;
+using std::istringstream;
 
 int main()
 {
@@ -48,12 +50,13 @@ int main()
     */
 
 	fstream file;
-	string line,name;
+	string line,userName;
 	file.open("default_config.txt");
-	if (file.is_open()){
+	if (file.is_open())
+	{
 		while ( getline (file,line) )
-		{
-			if (line.compare("user") == 0)
+		{//will reimplement defconfig so each entry takes a single line
+			/*if (line.compare("user") == 0)
 			{
 				getline(file,line);
 				name = line;
@@ -75,12 +78,11 @@ int main()
 			else if (line.compare("crew") == 0)
 			{
 				getline(file,line);
-				name = line;
-				getline(file,line);
+				//getline(file,line);
 				float pay;
 				//pay = std::strtod(line.c_str(), 0);
 				
-				cout << "Is " << name << " working?" << 
+				cout << "Is " << line << " working?" << 
 					endl << "(y/n) ";
 				string answer;
 				cin >> answer;
@@ -91,15 +93,66 @@ int main()
 							endl << ">> " << endl; 
 						cin >> name;
 						
+				}*/
+				
+			istringstream in(line);
+			
+			string type, answer;
+			in >> type;
+			if (type == "user")
+			{
+				in >> userName;
+				
+				cout << userName << ", is that you?" << 
+					endl << "(y/n) ";
+				cin >> answer;
+				
+				if (answer.compare("y") != 0)
+				{
+					cout << "Please enter user's name." <<
+						endl << ">> ";
+					cin >> userName;
+				}
+			}
+			
+			else if (type == "crew")
+			{
+				string name;
+				float pay;
+				
+				in >> name;
+				
+				cout << "Is " << name << " working?" << 
+					endl << "(y/n) ";
+					
+				cin >> answer;
+				
+				if (answer.compare("y") != 0)
+				{
+					cout << "Please enter crew member's name." <<
+						endl << ">> ";
+						
+					cin >> name;
+					
+					cout << "Please enter crew member's hourly pay" <<
+						endl << ">> ";
+						
+					cin >> pay;
 				}
 				
-				//cout << name << endl;
-
+				else
+				{
+					in >> pay;
+				}
+				
+				Person p(pay, name);
+				p.printDescription();
 			}
-		}	
-	}
+		}
+	}	
+
 	
-    cout << "Hello, " << name << endl <<
+    cout << "Hello, " << userName << endl <<
     	"Welcome to the Delivery Profit Analysis System.\n\n";
     Delivery d1;
 //    d1.setEstimatedSetupTime(30);

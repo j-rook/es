@@ -1,5 +1,2 @@
-user
-admin
-crew
-andy
-9.0
+user admin
+crew andy 9.0
