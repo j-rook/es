@@ -9,7 +9,7 @@ all: person.obj test.obj crew.obj delivery.obj
 test.obj: test.h test.cpp person.h crew.h delivery.h
 	$(CXX) -$(compFlags) test.cpp
 
-person.obj: person.cpp person.h inout.h
+person.obj: person.cpp person.h
 	$(CXX) -$(compFlags) person.cpp
 
 crew.obj: crew.cpp crew.h person.h
@@ -19,5 +19,5 @@ delivery.obj: delivery.cpp delivery.h crew.h person.h
 	$(CXX) -$(compFlags) delivery.cpp delivery.h
 
 clean:
-	rm -rv *o *out
+	rm -rv *o *out *o *~ *gch test
   

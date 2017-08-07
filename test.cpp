@@ -53,18 +53,48 @@ int main()
 	if (file.is_open()){
 		while ( getline (file,line) )
 		{
-			name = line;
-			cout <<	name << ", is that you?" <<
-				endl<< "(y/n) ";
-				
-			string answer;
-			cin >> answer;
-			if (answer.compare("y") != 0)
+			if (line.compare("user") == 0)
 			{
-				cout << "Please enter your name." <<
-					endl<< ">> ";
+				getline(file,line);
+				name = line;
+				cout <<	name << ", is that you?" <<
+					endl<< "(y/n) ";
 					
-				cin >> name;
+				string answer;
+				cin >> answer;
+				
+				if (answer.compare("y") != 0)
+				{
+					cout << "Please enter your name." <<
+						endl<< ">> ";
+						
+					cin >> name;
+				}
+			}
+			
+			else if (line.compare("crew") == 0)
+			{
+				getline(file,line);
+				name = line;
+				getline(file,line);
+				float pay;
+				//pay = std::strtod(line.c_str(), 0);
+				
+				cout << "Is " << name << " working?" << 
+					endl << "(y/n) ";
+				string answer;
+				cin >> answer;
+				
+				if (answer.compare("y") != 0)
+				{
+						cout << "Please enter crew member's name." << 
+							endl << ">> " << endl; 
+						cin >> name;
+						
+				}
+				
+				//cout << name << endl;
+
 			}
 		}	
 	}
