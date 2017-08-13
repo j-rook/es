@@ -17,7 +17,9 @@ int main()
     	
     cout << "Current crew: " << endl;
     dpas.getCrew().listCrewMembers();
-    Delivery d1;
+    cout << "=================================" <<
+		endl;
+    Delivery d1(dpas.getCrew());
     std::cout << "For this delivery, there was a profit of: " << d1.calculateDeliveryProfit() << std::endl;
 	
 }

@@ -47,9 +47,9 @@ Delivery::Delivery()
 		cin >> pay;
 		
 		Person member(pay, name);
-		crew.addCrewMember(member);
+		_crew.addCrewMember(member);
 		
-		crew.listCrewMembers();
+		_crew.listCrewMembers();
 		
 		cout << "Add another crew member? " <<
 			endl << "(y/n) ";
@@ -57,6 +57,49 @@ Delivery::Delivery()
 		cin >> addCrew;
 	
 	} while(addCrew.compare("n") != 0);
+}
+
+Delivery::Delivery(DeliveryCrew& crew)
+{
+	float setTime, driveTime;
+	float delChg;
+	
+	cout << "Initializing Delivery..." << 
+		endl;
+	cout << "Assigning Crew Members to Delivery..." << 
+		endl;
+	for (int i = 0; i < crew.getCrewSize(); ++i)
+	{
+		Person temp = crew.getCrewMember(i);
+		cout << "Adding " << temp.getName() << "..." << 
+			endl;
+		_crew.addCrewMember(crew.getCrewMember(i));
+	}
+	
+	cout << "Gathering Delivery Information..." << 
+		endl;
+		
+	cout << "=================================" << 
+		endl;
+	
+	cout << "Enter estimated setup time." <<
+		endl << ">> ";
+		
+	cin >> setTime;
+		
+	cout << "Enter estimated drive time." <<
+		endl << ">> ";
+		
+	cin >> driveTime;
+	
+	cout << "Enter delivery charge." <<
+		endl << ">> ";
+		
+	cin >> delChg;
+	
+	setEstimatedSetupTime(setTime);
+	setEstimatedDriveTime(driveTime);
+	setDeliveryCharge(delChg);
 }
 
 float Delivery::calculateEstimatedDeliveryTime()
@@ -68,7 +111,7 @@ float Delivery::calculateEstimatedDeliveryTime()
 float Delivery::calculateDeliveryProfit()
 {
 	float delTime = calculateEstimatedDeliveryTime();
-	float cost = delTime * crew.sumCrewHourlyRates();
+	float cost = delTime * _crew.sumCrewHourlyRates();
 	
 	float revenue = getDeliveryCharge() - cost;
 	
