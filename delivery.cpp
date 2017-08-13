@@ -118,6 +118,23 @@ float Delivery::calculateDeliveryProfit()
 	return revenue;
 }
 
+void Delivery::printDescription()
+{
+	cout << "=================================" <<
+		endl;
+	cout << "Delivery's total time(estimate): " <<
+		calculateEstimatedDeliveryTime() << endl;
+	cout << "Delivery fee charged: " << 
+		getDeliveryCharge() << endl;
+		
+	_crew.printDescription();
+		
+	cout << "Delivery's profit(estimate): " << 
+		calculateDeliveryProfit() << endl;	
+	cout << "=================================" <<
+		endl;
+}
+
 float Delivery::getEstimatedSetupTime()
 {
 	return _estSetupTime;	

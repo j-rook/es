@@ -16,6 +16,7 @@ class Delivery
 		void setEstimatedSetupTime(float);
 		void setEstimatedDriveTime(float);
 		void setDeliveryCharge(float);
+		
 		/*
 		 * Function to sum estimated setup and drive time
 		 * 
@@ -33,6 +34,7 @@ class Delivery
 		 * @res - float representing the profit of the delivery
 		 */
 		float calculateDeliveryProfit();
+		void printDescription();
 		
 	private:
 		float _estSetupTime;

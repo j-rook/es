@@ -16,10 +16,11 @@ int main()
     	"Welcome to the Delivery Profit Analysis System.\n\n";
     	
     cout << "Current crew: " << endl;
-    dpas.getCrew().listCrewMembers();
+    dpas.getCrew().printDescription();
     cout << "=================================" <<
 		endl;
     Delivery d1(dpas.getCrew());
-    std::cout << "For this delivery, there was a profit of: " << d1.calculateDeliveryProfit() << std::endl;
+    d1.printDescription();
+    //std::cout << "For this delivery, there was a profit of: " << d1.calculateDeliveryProfit() << std::endl;
 	
 }

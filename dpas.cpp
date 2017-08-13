@@ -15,7 +15,7 @@ DPAS::DPAS()
 	if (file.is_open())
 	{
 		while ( getline (file,line) )
-		{//will reimplement defconfig so each entry takes a single line
+		{//will reimplement defconfig so each entry takes a single line - [x] done
 				
 			istringstream in(line);
 			

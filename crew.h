@@ -44,6 +44,7 @@ class DeliveryCrew
          */
         float sumCrewHourlyRates();
        
+		void printDescription();
         Person& getCrewMember(int);
         int getCrewSize();
         void setCrewSize(int);

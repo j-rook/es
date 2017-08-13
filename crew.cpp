@@ -1,5 +1,5 @@
 #include "crew.h"
-
+using std::endl;
     //reimplement constructors to 
 DeliveryCrew::DeliveryCrew()
 {
@@ -105,6 +105,20 @@ float DeliveryCrew::sumCrewHourlyRates()
 	}
 	
 	return sum;
+}
+
+void DeliveryCrew::printDescription()
+{
+	std::cout << "The crew has an hourly pay: " << sumCrewHourlyRates() <<
+		endl;
+	if (getCrewSize() > 0)
+	{
+		std::cout << "The crew members are: " << endl;
+		for (int i = 0; i < getCrewSize(); ++i)
+		{
+			std::cout << getCrewMember(i).getName() << endl;
+		}
+	}
 }
 
 Person& DeliveryCrew::getCrewMember(int i)
