@@ -75,10 +75,58 @@ DPAS::DPAS()
 				_crew.addCrewMember(p);
 			}
 		}
-		
-		file.close();
-	}	
-}
+	}
+
+	fstream delFile;
+	cout << "Opening deliveries file..." << endl;
+	delFile.open("deliveries.txt");
+	if (delFile.is_open())
+	{
+		cout << "File open..." << endl;
+		while ( getline (delFile,line) )
+		{//will reimplement defconfig so each entry takes a single line - [x] done
+				
+			istringstream in(line);
+			cout << line << endl;
+			string type, answer;
+			in >> type;
+			if (type == "delivery")
+			{
+				in >> type;
+				if (type == "crew")
+				{
+					int numCrew = 0;
+					in >> numCrew; // number of crew members on delivery
+					std::string name = "";
+					DeliveryCrew crew;
+					for (int i = 0; i < numCrew; ++i)
+					{
+						in >> name;
+						int x = getCrew().hasCrewMember(name);
+						if (x > -1)
+						{
+							crew.addCrewMember(getCrew().getCrewMember(x));
+						}
+						else
+						{
+							cout << "Sorry, " << name << 
+								" doesn't appear to be on the roster of available crew members."  <<
+								endl;
+								
+							getCrew().printDescription();
+						}
+					}
+					
+					cout << "Printing crew description..." << endl;
+					crew.printDescription();//eventually needs to create a delivery with this new crew
+				}
+			}
+		}
+	}
+	
+	file.close();
+}	
+
 
 
 string DPAS::getUserName()

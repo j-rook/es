@@ -11,11 +11,12 @@ using std::istringstream;
 int main()
 {
 	DPAS dpas;
-	
+	cout << "=================================" <<
+		endl<<endl<<endl;
     cout << "Hello, " << dpas.getUserName() << endl <<
     	"Welcome to the Delivery Profit Analysis System.\n\n";
     	
-    cout << "Current crew: " << endl;
+    cout << "Current Availble Crew Members: " << endl;
     dpas.getCrew().printDescription();
     cout << "=================================" <<
 		endl;
