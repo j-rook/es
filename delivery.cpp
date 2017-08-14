@@ -135,6 +135,15 @@ void Delivery::printDescription()
 		endl;
 }
 
+DeliveryCrew& Delivery::getDeliveryCrew()
+{
+	return _crew;
+}
+
+void Delivery::setDeliveryCrew(DeliveryCrew& crew)
+{
+	_crew = crew;
+}
 float Delivery::getEstimatedSetupTime()
 {
 	return _estSetupTime;	

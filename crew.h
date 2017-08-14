@@ -46,6 +46,8 @@ class DeliveryCrew
        
 		void printDescription();
         Person& getCrewMember(int);
+        Person& getCrewMember(std::string);
+        int hasCrewMember(std::string);
         int getCrewSize();
         void setCrewSize(int);
         const int getMaxSize();

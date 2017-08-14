@@ -22,5 +22,10 @@ int main()
     Delivery d1(dpas.getCrew());
     d1.printDescription();
     //std::cout << "For this delivery, there was a profit of: " << d1.calculateDeliveryProfit() << std::endl;
+	Person p = d1.getDeliveryCrew().getCrewMember("jack");
+	if (p.getName().compare("Null") != 0)
+	{
+		p.printDescription();
+	}
 	
 }

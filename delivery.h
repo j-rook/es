@@ -16,7 +16,8 @@ class Delivery
 		void setEstimatedSetupTime(float);
 		void setEstimatedDriveTime(float);
 		void setDeliveryCharge(float);
-		
+		DeliveryCrew& getDeliveryCrew();
+		void setDeliveryCrew(DeliveryCrew&);
 		/*
 		 * Function to sum estimated setup and drive time
 		 * 

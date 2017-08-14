@@ -7,7 +7,7 @@
 class Person
 {
 	public:
-		Person(): _payPerHour(0), _name("Bob")
+		Person(): _payPerHour(0), _name("Null")
 		{}
 		Person(double payPerHour, std::string name);			
 		std::string getName();

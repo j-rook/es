@@ -109,15 +109,21 @@ float DeliveryCrew::sumCrewHourlyRates()
 
 void DeliveryCrew::printDescription()
 {
-	std::cout << "The crew has an hourly pay: " << sumCrewHourlyRates() <<
-		endl;
 	if (getCrewSize() > 0)
 	{
+		std::cout << "The crew has an hourly pay: " << sumCrewHourlyRates() <<
+			endl;
+	
 		std::cout << "The crew members are: " << endl;
 		for (int i = 0; i < getCrewSize(); ++i)
 		{
 			std::cout << getCrewMember(i).getName() << endl;
 		}
+	}
+	
+	else
+	{
+		std::cout << "No crew members to describe..." << endl;
 	}
 }
 
@@ -125,6 +131,34 @@ Person& DeliveryCrew::getCrewMember(int i)
 {
 	return _crew[i];
 }
+
+Person& DeliveryCrew::getCrewMember(std::string name)
+{
+	int ndx = hasCrewMember(name);
+	if (ndx > -1)
+	{
+		return getCrewMember(ndx);
+	}
+	Person temp;
+	return temp;
+}
+
+int DeliveryCrew::hasCrewMember(std::string name)
+{	
+	if (getCrewSize() > 0)
+	{
+		for (int i = 0; i < getCrewSize(); ++i)
+		{
+			if (getCrewMember(i).getName().compare(name) == 0)
+			{
+				return i;
+			}
+		}
+	}
+	
+	return -1;
+}
+
 int DeliveryCrew::getCrewSize()
 {
 	return _size;
